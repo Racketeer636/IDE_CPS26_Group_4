@@ -35,7 +35,7 @@ Two wheels strum the three strings. The lower one is responsible for the left an
 
 ## Hardware Design
 
-Below is a list 
+Below is a list of the electronics used in this project, their respective manuals are in the electronics directory.
 
 | No. | Item | Count | Description |
 |---|---|---|---|
