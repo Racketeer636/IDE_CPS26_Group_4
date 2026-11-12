@@ -29,8 +29,7 @@ If typical behaviour is not observed, please refer to the dedicated troubleshoot
 
 The current concept was chosen based on aesthetics, with adjustments made to the design based on the available materials and timeframe. The changes made to the original concept are detailed in each section.
 
-![Initial sketch](Sketch1.jpeg)
-*Other concept sketches
+![Initial sketch](images/Racketeer_Mainpic.jpg)
 
 ## Software
 This section details the development of the software for this project. For details on troubleshooting, refer to the dedicated section in the repository.
