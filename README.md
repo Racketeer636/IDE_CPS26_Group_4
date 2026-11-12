@@ -1,68 +1,63 @@
 # IDE_CPS26_Group_4
 # This is a project by group 4 to make a playable music box with a CV input.
 
-
 # Cyber Physical Systems 2026 - Group 4
 
-This project’s goal was to create a music box controlled by a user with a camera as an input. This was inspired by the concept of an air guitar, a gesture that anyone can emulate even if they do not know how to play a guitar.
+## Overall concept
 
-*Insert main pic here
+This project is a camera controlled strings-based music box. The user’s left hand height controls the instrument’s pitch and their right hand’s speed its tempo.
 
-The computer vision system tracks the user's left and right hands, with their movements being the two inputs for the machine learning (ML) model. The user's left hand controls the pitch of the music box and their right controls the strumming action.
-
-*Insert simplified block diagram
-
-Mechanically, the music box has 3 strings placed in the center of the resonance chamber. Each string is of a different length and has its own actuator to change its tone. All 3 strings share the same actuator for strumming. This allows the music box to generate a total of 6 tones.
-
-*Pic of tone mechanism
-*Pic of strummer mechanism
-
-## Typical Behaviour
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-*Pic of input & output
-
-If typical behaviour is not observed, please refer to the dedicated troubleshooting folder for both a flowchart and possible common solutions.
-
-## Development
-
-The current concept was chosen based on aesthetics, with adjustments made to the design based on the available materials and timeframe. The changes made to the original concept are detailed in each section.
+The instrument is inspired by the concept of an air guitar, being a gesture that anyone can emulate even if they cannot play a guitar.
 
 ![Initial sketch](images/Racketeer_Mainpic.jpg)
 
-## Software
-This section details the development of the software for this project. For details on troubleshooting, refer to the dedicated section in the repository.
+A computer vision system tracks the user’s hands, classifying their positions based on a pre-trained machine learning (ML) model. This information is then sent to the Arduino in the instrument to perform the corresponding action. For further details, refer to the dedicated section in software design.
 
-### Computer Vision (CV) input
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+![Initial sketch](images/Simplified-UX-BlockDiagram.jpg)
 
-### Wekinator
+The Arduino controlling the instrument controls three servo motors and one DC motor. Each string has its own servo motor, allowing each string to produce two notes. The DC motor is responsible for strumming all three strings. For further details, refer to the dedicated section in software design.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+## Mechanical Design
 
-### Processing
+This section details the development of the mechanical design for this project.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+![Initial sketch](images/Concept_sketch.jpeg)
+![Initial sketch](images/Labelled_cutout.jpeg)
 
-### Arduino
+The instrument relies on the basic principle of an acoustic string instrument. In which a vibrating string is coupled to a soundboard via a bridge. The string's vibrations are transmitted through the bridge and to the soundboard, producing sound that is amplified by the resonance chamber.
 
-## Mechanical
-This section details the development of the mechanical design for this project. For details on troubleshooting, refer to the dedicated section in the repository.
+The design was guided by form, with suitable materials sourced from IDE’s Makerspace in Battersea to construct the resonance chamber’s walls. Off-cuts of MDF board were mounted to an FDM 3D printed frame.
 
-Materials used were primarily hand-cut MDF boards, combined with FDM 3D printed parts in PLA. These materials were chosen due to their availability in the IDE Battersea Makerspace, with off-cuts chosen to reduce material waste.
+The 3D printed frame provides mounts for the wheels which strum the strings. Tuners to tension the strings are designed into the 3D printed frame.
 
-Should this concept be further developed, the use of laser-cut plywood for the side panels would enable a more polished prototype. Other materials like plastics may not have favourable characteristics for function as the walls of the resonance chamber.
+Each servo controls an arm that presses into its respective string. The thinness of each arm is intentional, allowing it to flex as it presses into the string. This allows a more constant pressure to be applied.
 
-## Electronics
+![Initial sketch](images/Racketeer_Xsection.jpeg)
 
-This section details the development of the electronics for this project. For details on troubleshooting, refer to the dedicated section in the repository.
+Two wheels strum the three strings. The lower one is responsible for the left and middle, while the upper is dedicated to the right string. Originally intended as a single wheel similar to a Hurdy Gurdy, the current design was adopted in favour of easier fine-tuning of the wheel to string contact distance. Both wheels are driven by a DC motor connected to a pulley system that uses a rubber-band as a belt.
 
-The music box utilises the following electronic components:
-- SG90 servo motor 1 (Left string)
-- SG90 servo motor (Middle string)
-- SG90 servo motor (Right string)
-- DC Motor (Strummer)
+## Hardware Design
 
-*Insert Block diagram
-*Insert circuit diagram
+| No. | Item | Count | Description |
+|---|---|---|---|
+| 1 | Servo Motor | 3 | SG90 used for this project, For pressing the strings to change tones. |
+| 2 | DC Motor with Reduction Gearbox | 1 | Anreak GW1812 N20 used, can be substituted for any other high-torque DC motor given adjustments to the mounting. |
+| 3 | Arduino Nano Every | 1 | The "Brain" of the instrument. Provided for the module, can be substituted with a similar microcontroller given adjustments to the code for pin connections. |
+| 4 | USB DC Power Supply | 1 | DC Power supply that provides power to the motors. Provided as part of the course materials and can be substituted with a similar power supply. |
+| 5 | L293D Half H Driver | 1 | H-Bridge for safely controlling the DC motor using the chosen microcontroller. |
+
+![Initial sketch](images/CircuitDiagram-01.jpg)
+
+## Software Design
+
+This section details the communication between the programming and machine learning softwares used in this project. 
+
+![Initial sketch](images/BlockDiagram.jpg)
+
+**Mediapipe OSC:** This project uses Mediapipe OSC hand tracking script, hands.py, to track movement of two hands through a webcam and send the data, 1 hand-count value and 168 landmark values (84 per hand), to Processing via OSC on port 7500.
+
+Pending image (Hands)
+
+**Processing:** Receives the raw data. Checks the hand count value. Draws a visual interface to display the hand tracking points and UI elements. 
+
+Pending image (Hand tracker, notes, metronome)
