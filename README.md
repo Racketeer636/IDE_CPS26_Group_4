@@ -18,7 +18,7 @@ The Arduino controlling the instrument controls three servo motors and one DC mo
 
 This section details the development of the mechanical design for this project.
 
-![Concept sketch](images/Concept_sketch.jpeg)
+![Concept sketch](images/Concept_Sketch.jpeg)
 ![3D Cad model with main parts labelled](images/Labelled_cutout.jpeg)
 
 The instrument relies on the basic principle of an acoustic string instrument. In which a vibrating string is coupled to a soundboard via a bridge. The string's vibrations are transmitted through the bridge and to the soundboard, producing sound that is amplified by the resonance chamber.
