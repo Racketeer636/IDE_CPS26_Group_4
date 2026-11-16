@@ -15,7 +15,7 @@ A computer vision system tracks the user's hand positions, which is analysed in 
 - The left hand's position is classified by a pre-trained machine learning (ML) model which determines note and pitch. 
 - The right hand's rate of change in position is calculated by a programming software, which determines the tempo.
 
-![Simplified user experience diagram](images/Simplified-UX-BlockDiagram.jpg)
+![Simplified user experience diagram](images/Simplified-UX-BlockDiagram-R2.jpg)
 
 Following analysis, the corresponding command is relayed to the Arduino in the instrument. This Arduino controls three servo motors and one DC motor. Each servo interacts with its own string, allowing each string to produce two notes; pressed and unpressed. With three strings of differing pitch, a total of six tones is possible. The DC motor is responsible for strumming all three strings simultaneously.
 
