@@ -1,18 +1,25 @@
+
 # Cyber Physical Systems 2026 - Group 4
 
 ## Overall concept
 
 This project is a camera controlled strings-based music box. The user’s left hand height controls the instrument’s pitch and their right hand’s speed its tempo.
 
-The instrument is inspired by the concept of an air guitar, being a gesture that anyone can emulate even if they cannot play a guitar.
+The instrument is inspired by the concept of an air guitar. This was done to make user interaction feel familiar and easy to emulate
+
+The instrument is inspired by the concept of an air guitar, which provides the user with a familiar and easy to emulate interaction.
 
 ![Racketeer main picture](images/Racketeer_Mainpic.jpg)
 
-A computer vision system tracks the user’s hands, classifying their positions based on a pre-trained machine learning (ML) model. This information is then sent to the Arduino in the instrument to perform the corresponding action. For further details, refer to the dedicated section in software design.
+A computer vision system tracks the user's hand positions, which is analysed in the following ways:
+- The left hand's position is classified by a pre-trained machine learning (ML) model which determines note and pitch. 
+- The right hand's rate of change in position is calculated by a programming software, which determines the tempo.
 
 ![Simplified user experience diagram](images/Simplified-UX-BlockDiagram.jpg)
 
-The Arduino controlling the instrument controls three servo motors and one DC motor. Each string has its own servo motor, allowing each string to produce two notes. The DC motor is responsible for strumming all three strings. For further details, refer to the dedicated section in software design.
+Following analysis, the corresponding command is relayed to the Arduino in the instrument. This Arduino controls three servo motors and one DC motor. Each servo interacts with its own string, allowing each string to produce two notes; pressed and unpressed. With three strings of differing pitch, a total of six tones is possible. The DC motor is responsible for strumming all three strings simultaneously.
+
+***For further details on each aspect, refer to their dedicated sections below.**
 
 ## Mechanical Design
 
@@ -163,4 +170,3 @@ Performance of the instrument could be improved through:
 Some formatting and evaluation work in this readme and accompanying code was done using OpenAI Codex using the model gpt-5-codex and Anthropic Claude Sonnet 5 model respectively. All documentaion is handwritten. 
 
 Cyber Physical Systems — Group 4 - Aysha Saleem, Ikeadi Ndukwu, Jonathan Yim 
-
